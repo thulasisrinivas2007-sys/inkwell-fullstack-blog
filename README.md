@@ -104,7 +104,7 @@ project/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/inkwell-fullstack-blog.git
+git clone https://github.com/thulasisrinivas2007-sys/inkwell-fullstack-blog.git
 cd inkwell-fullstack-blog
 ```
 
