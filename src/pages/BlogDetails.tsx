@@ -13,7 +13,7 @@ import { supabase } from '@/lib/supabaseClient';
 import { useAuth } from '@/context/AuthContext';
 import { useNotification } from '@/context/NotificationContext';
 import type { BlogWithAuthor } from '@/types';
-import { formatDate, getCategoryColor } from '@/utils/format';
+import { formatDate, getCategoryColor, getFallbackCoverImage } from '@/utils/format';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ConfirmDialog from '@/components/ConfirmDialog';
 
@@ -96,21 +96,24 @@ export default function BlogDetails() {
     );
   }
 
+  const fallbackImage = blog ? getFallbackCoverImage(blog.category, blog.title) : '';
+
   return (
     <article className="pb-12">
       {/* Hero image */}
-      {blog.featured_image && (
-        <div className="relative h-[300px] w-full overflow-hidden bg-slate-200 sm:h-[420px]">
-          <img
-            src={blog.featured_image}
-            alt={blog.title}
-            className="h-full w-full object-cover"
-            onError={(e) => {
-              (e.target as HTMLImageElement).parentElement!.style.display = 'none';
-            }}
-          />
-        </div>
-      )}
+      <div className="relative h-[280px] w-full overflow-hidden bg-slate-900 sm:h-[400px]">
+        <img
+          src={blog.featured_image || fallbackImage}
+          alt={blog.title}
+          className="h-full w-full object-cover"
+          onError={(e) => {
+            const target = e.currentTarget;
+            if (target.src !== fallbackImage) {
+              target.src = fallbackImage;
+            }
+          }}
+        />
+      </div>
 
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <button
