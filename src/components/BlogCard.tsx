@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Calendar, User as UserIcon } from 'lucide-react';
 import type { BlogWithAuthor } from '@/types';
-import { getCategoryColor, truncate, formatRelativeTime } from '@/utils/format';
+import { getCategoryColor, truncate, formatRelativeTime, formatDate } from '@/utils/format';
 
 interface BlogCardProps {
   blog: BlogWithAuthor;
@@ -57,14 +57,14 @@ export default function BlogCard({ blog, showAuthor = true, actions }: BlogCardP
         <div className="flex items-center justify-between border-t border-slate-100 pt-3">
           <div className="flex items-center gap-2 text-xs text-slate-500">
             {showAuthor && (
-              <span className="flex items-center gap-1.5">
+              <span className="flex items-center gap-1.5 font-medium">
                 <UserIcon className="h-3.5 w-3.5" />
-                {blog.profiles?.full_name || 'Unknown'}
+                {blog.profiles?.full_name || 'Inkwell Writer'}
               </span>
             )}
             <span className="flex items-center gap-1.5">
               <Calendar className="h-3.5 w-3.5" />
-              {formatRelativeTime(blog.created_at)}
+              {formatDate(blog.created_at)}
             </span>
           </div>
           {actions && <div className="flex items-center gap-1.5">{actions}</div>}

@@ -141,9 +141,9 @@ export default function BlogDetails() {
 
         {/* Author + date */}
         <div className="mt-4 flex items-center gap-4 text-sm text-slate-500">
-          <span className="flex items-center gap-1.5">
+          <span className="flex items-center gap-1.5 font-medium">
             <UserIcon className="h-4 w-4" />
-            {blog.profiles?.full_name || 'Unknown author'}
+            {blog.profiles?.full_name || 'Inkwell Writer'}
           </span>
           <span className="flex items-center gap-1.5">
             <Calendar className="h-4 w-4" />

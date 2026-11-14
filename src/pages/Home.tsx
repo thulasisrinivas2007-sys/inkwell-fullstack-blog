@@ -117,11 +117,10 @@ export default function Home() {
             </span>
             <button
               onClick={() => setSelectedCategory('all')}
-              className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${
-                selectedCategory === 'all'
+              className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${selectedCategory === 'all'
                   ? 'bg-brand-600 text-white shadow-sm'
                   : 'bg-white text-slate-600 border border-slate-200 hover:border-brand-300 hover:text-brand-600'
-              }`}
+                }`}
             >
               All
             </button>
@@ -129,11 +128,10 @@ export default function Home() {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${
-                  selectedCategory === cat
+                className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${selectedCategory === cat
                     ? 'bg-brand-600 text-white shadow-sm'
                     : 'bg-white text-slate-600 border border-slate-200 hover:border-brand-300 hover:text-brand-600'
-                }`}
+                  }`}
               >
                 {cat}
               </button>

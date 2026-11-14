@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { FileText, PenSquare, Search } from 'lucide-react';
 
 interface EmptyStateProps {
@@ -29,9 +30,9 @@ export default function EmptyState({
       <h3 className="mb-2 text-lg font-bold text-slate-900">{title}</h3>
       <p className="mb-6 max-w-sm text-sm text-slate-500">{message}</p>
       {actionLabel && actionHref && (
-        <a href={actionHref} className="btn-primary">
+        <Link to={actionHref} className="btn-primary">
           {actionLabel}
-        </a>
+        </Link>
       )}
     </div>
   );
